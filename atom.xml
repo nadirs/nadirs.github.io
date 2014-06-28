@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <title>Nadir's static website</title>
-    <link href="http://nadirs.github.com/atom.xml" rel="self" />
-    <link href="http://nadirs.github.com" />
-    <id>http://nadirs.github.com/atom.xml</id>
+    <link href="http://nadirs.github.io/atom.xml" rel="self" />
+    <link href="http://nadirs.github.io" />
+    <id>http://nadirs.github.io/atom.xml</id>
     <author>
         <name>Nadir Sampaoli</name>
         <email>nadirsampaoli@gmail.com</email>
@@ -11,8 +11,8 @@
     <updated>2013-11-09T00:00:00Z</updated>
     <entry>
     <title>The developer's stance</title>
-    <link href="http://nadirs.github.com/posts/the-developer-stance.html" />
-    <id>http://nadirs.github.com/posts/the-developer-stance.html</id>
+    <link href="http://nadirs.github.io/posts/the-developer-stance.html" />
+    <id>http://nadirs.github.io/posts/the-developer-stance.html</id>
     <published>2013-11-09T00:00:00Z</published>
     <updated>2013-11-09T00:00:00Z</updated>
     <summary type="html"><![CDATA[<div class="info">
@@ -49,8 +49,8 @@
 </entry>
 <entry>
     <title>Read you a book for great good!</title>
-    <link href="http://nadirs.github.com/posts/read-you-a-book-for-great-good.html" />
-    <id>http://nadirs.github.com/posts/read-you-a-book-for-great-good.html</id>
+    <link href="http://nadirs.github.io/posts/read-you-a-book-for-great-good.html" />
+    <id>http://nadirs.github.io/posts/read-you-a-book-for-great-good.html</id>
     <published>2013-04-21T00:00:00Z</published>
     <updated>2013-04-21T00:00:00Z</updated>
     <summary type="html"><![CDATA[<div class="info">
