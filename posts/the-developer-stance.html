@@ -36,20 +36,6 @@
 <h2 id="art-science-and-craft">Art, Science and Craft</h2>
 <p>Software development is quite more similar to a craftsman’s work than to art or science.</p>
 <p>A problem can be solved not as much by demanding its solution to dogmatic principles or to a random creative approach (although creativity is often helpful when you’re stuck in a pursuit for a solution to a problem), but rather by resorting to experience. This is not to be intended in terms of years <sup id="orignote1"><a href="#footnote1">1</a></sup>, but rather as a result of iterating over the problem proposing ever different solutions, getting rid of the less effective ones as you go on.</p>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">{-# OPTIONS_GHC -Wall #-}</span>
-<span class="ot">{-# LANGUAGE KindSignatures #-}</span>
-
-<span class="kw">import </span><span class="dt">Control.Applicative</span>
-
-
-<span class="kw">newtype</span> <span class="dt">IdentityT</span> (<span class="ot">f ::</span> <span class="fu">*</span> <span class="ot">-&gt;</span> <span class="fu">*</span>) a <span class="fu">=</span> <span class="dt">IdentityT</span> {<span class="ot"> runIdentityT ::</span> f a } <span class="kw">deriving</span> (<span class="dt">Show</span>)
-
-<span class="kw">instance</span> <span class="dt">Functor</span> f <span class="ot">=&gt;</span> <span class="dt">Functor</span> (<span class="dt">IdentityT</span> f) <span class="kw">where</span>
-    fmap h (<span class="dt">IdentityT</span> f) <span class="fu">=</span> <span class="dt">IdentityT</span> <span class="fu">$</span> fmap h f
-
-<span class="kw">instance</span> <span class="dt">Applicative</span> f <span class="ot">=&gt;</span> <span class="dt">Applicative</span> (<span class="dt">IdentityT</span> f) <span class="kw">where</span>
-    pure <span class="fu">=</span> <span class="dt">IdentityT</span> <span class="fu">.</span> pure
-    (<span class="dt">IdentityT</span> h) <span class="fu">&lt;*&gt;</span> (<span class="dt">IdentityT</span> f) <span class="fu">=</span> <span class="dt">IdentityT</span> <span class="fu">$</span> h <span class="fu">&lt;*&gt;</span> f</code></pre>
 <p><sup id="footnote1"><a href="#orignote1">1</a></sup> There’s an adagio that goes: «<em>Try not to confuse 20 years of experience with one year repeated 20 times.» (cit. Unknown)</em></p>
 <h2 id="focus-on-the-problem">Focus on The Problem™</h2>
 <p>The actual reason we develop software is solving a Problem™. You should worry whether your purpose is using your tools to an end in itself, rather than actually using the best tool for the job.</p>
