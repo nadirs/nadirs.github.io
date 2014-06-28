@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>Nadir's static website</title>
+    <link href="http://nadirs.github.com/atom.xml" rel="self" />
+    <link href="http://nadirs.github.com" />
+    <id>http://nadirs.github.com/atom.xml</id>
+    <author>
+        <name>Nadir Sampaoli</name>
+        <email>nadirsampaoli@gmail.com</email>
+    </author>
+    <updated>2013-11-09T00:00:00Z</updated>
+    <entry>
+    <title>The developer's stance</title>
+    <link href="http://nadirs.github.com/posts/the-developer-stance.html" />
+    <id>http://nadirs.github.com/posts/the-developer-stance.html</id>
+    <published>2013-11-09T00:00:00Z</published>
+    <updated>2013-11-09T00:00:00Z</updated>
+    <summary type="html"><![CDATA[<div class="info">
+    Posted on November  9, 2013
+    by Nadir Sampaoli
+</div>
+
+<p>This is a memorandum for my approach to the developer’s profession.</p>
+<h2 id="art-science-and-craft">Art, Science and Craft</h2>
+<p>Software development is quite more similar to a craftsman’s work than to art or science.</p>
+<p>A problem can be solved not as much by demanding its solution to dogmatic principles or to a random creative approach (although creativity is often helpful when you’re stuck in a pursuit for a solution to a problem), but rather by resorting to experience. This is not to be intended in terms of years <sup id="orignote1"><a href="#footnote1">1</a></sup>, but rather as a result of iterating over the problem proposing ever different solutions, getting rid of the less effective ones as you go on.</p>
+<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">{-# OPTIONS_GHC -Wall #-}</span>
+<span class="ot">{-# LANGUAGE KindSignatures #-}</span>
+
+<span class="kw">import </span><span class="dt">Control.Applicative</span>
+
+
+<span class="kw">newtype</span> <span class="dt">IdentityT</span> (<span class="ot">f ::</span> <span class="fu">*</span> <span class="ot">-&gt;</span> <span class="fu">*</span>) a <span class="fu">=</span> <span class="dt">IdentityT</span> {<span class="ot"> runIdentityT ::</span> f a } <span class="kw">deriving</span> (<span class="dt">Show</span>)
+
+<span class="kw">instance</span> <span class="dt">Functor</span> f <span class="ot">=&gt;</span> <span class="dt">Functor</span> (<span class="dt">IdentityT</span> f) <span class="kw">where</span>
+    fmap h (<span class="dt">IdentityT</span> f) <span class="fu">=</span> <span class="dt">IdentityT</span> <span class="fu">$</span> fmap h f
+
+<span class="kw">instance</span> <span class="dt">Applicative</span> f <span class="ot">=&gt;</span> <span class="dt">Applicative</span> (<span class="dt">IdentityT</span> f) <span class="kw">where</span>
+    pure <span class="fu">=</span> <span class="dt">IdentityT</span> <span class="fu">.</span> pure
+    (<span class="dt">IdentityT</span> h) <span class="fu">&lt;*&gt;</span> (<span class="dt">IdentityT</span> f) <span class="fu">=</span> <span class="dt">IdentityT</span> <span class="fu">$</span> h <span class="fu">&lt;*&gt;</span> f</code></pre>
+<p><sup id="footnote1"><a href="#orignote1">1</a></sup> There’s an adagio that goes: «<em>Try not to confuse 20 years of experience with one year repeated 20 times.» (cit. Unknown)</em></p>
+<h2 id="focus-on-the-problem">Focus on The Problem™</h2>
+<p>The actual reason we develop software is solving a Problem™. You should worry whether your purpose is using your tools to an end in itself, rather than actually using the best tool for the job.</p>
+<h2 id="extend-your-tool-box">Extend your Tool Box</h2>
+<p>Nonetheless try as hard as you can on adding many tools to your <em>professional toolbox</em>, as well as freeing yourself from the limits of a specific paradigm or philosophy. Also, each new technology acquired and lesson learned can (and should) be not only another tool in your partitioned box but possibly another wire in your knowledge circuit.<br />So you might gain the ability to accomplish some result in a shorter form, or solve a previously messy problem in a clearer way.</p>
+<h2 id="conclusions">Conclusions</h2>
+<p>It might sound as a cheap pun, but it makes sense: as a developer you should try to develop yourself as much as you find healthy, so you can develop better solutions in your coding tasks.</p>
+]]></summary>
+</entry>
+<entry>
+    <title>Read you a book for great good!</title>
+    <link href="http://nadirs.github.com/posts/read-you-a-book-for-great-good.html" />
+    <id>http://nadirs.github.com/posts/read-you-a-book-for-great-good.html</id>
+    <published>2013-04-21T00:00:00Z</published>
+    <updated>2013-04-21T00:00:00Z</updated>
+    <summary type="html"><![CDATA[<div class="info">
+    Posted on April 21, 2013
+    by Nadir Sampaoli
+</div>
+
+<p>Last september I decided to start a life-long plan of self-improvement: I started gathering info around the web (there are even some other blogs, like <a href="http://www.codinghorror.com">Coding Horror</a>, that provide their own list of suggested books for programmers and the like) about good technical readings and books to take advantage of the teachings that more experienced craftsmen and developers have been so kind to share with newcomers.</p>
+<h2 id="code-complete-and-other-stories">Code Complete and other stories</h2>
+<p>The first tome of my imaginary encyclopedia was <a href="http://cc2e.com/" title="Code Complete, 2nd Ed.">Code Complete</a> (2nd edition), by Steve McConnell. It’s a fairly large (took me almost three months to finish it) overview of software development fundamentals and tips about managing your projects (be they small or large).<br />The nicest thing about this book is that everything he states is backed by reasoning and statistics gathered through several years of on-field (someone would say <em>In Trenches</em>) experience.<br />I have to admit that some of the chapters concerning practical coding (like using flow structures and functional decomposition) didn’t come new to me, but I guess they were aimed to <em>completeness</em>.</p>
+<p>Another book that deeply changed my approach towards facing my daily jungle is <a href="http://pragprog.com/the-pragmatic-programmer" title="The Pragmatic Programmer">The Pragmatic Programmer</a>.<br />It’s a gathering of several short (and very entertaining, if you ask me) anectodes used to represent real-world issues you probably have meet often before. It’s followed by practical examples and real-world applications of those teachings.</p>
+]]></summary>
+</entry>
+
+</feed>
