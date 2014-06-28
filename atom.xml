@@ -86,9 +86,9 @@ mapIdentityT h <span class="fu">=</span> <span class="dt">IdentityT</span> <span
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="fu">&gt;</span> <span class="kw">let</span> foo <span class="fu">=</span> <span class="dt">IdentityT</span> (<span class="dt">Just</span> <span class="dv">5</span>)
 <span class="fu">&gt;</span> foo
 <span class="dt">IdentityT</span> {runIdentityT <span class="fu">=</span> <span class="dt">Just</span> <span class="dv">5</span>}</code></pre>
-<p>Ok, now we need a function <code>f a -&gt; g b</code>, which in this case would be <code>Num a =&gt; Maybe a -&gt; g b</code>. Lets say we want a list of strings, so the signature ends up being:</p>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="dt">Num</span> a, <span class="dt">Show</span> a <span class="ot">=&gt;</span> <span class="dt">Maybe</span> a <span class="ot">-&gt;</span> [<span class="dt">String</span>]</code></pre>
-<p>The function, let’s call it <code>bar</code> for the sake of meaningful names, is as follows:</p>
+<p>Ok, now we need a function <code>f a -&gt; g b</code> (let’s call it <code>bar</code> for the sake of meaningful names), which in this case would be <code>Num a =&gt; Maybe a -&gt; g b</code>. Lets say we want a list of strings, so the signature ends up being:</p>
+<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">bar ::</span> (<span class="dt">Num</span> a, <span class="dt">Show</span> a) <span class="ot">=&gt;</span> <span class="dt">Maybe</span> a <span class="ot">-&gt;</span> [<span class="dt">String</span>]</code></pre>
+<p>Its implementation is as follows:</p>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="fu">&gt;</span> <span class="kw">let</span> bar <span class="fu">=</span> maybe [] (pure <span class="fu">.</span> show)</code></pre>
 <p>Finally we map <code>bar</code> to <code>foo</code>:</p>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="fu">&gt;</span> mapIdentityT bar foo
