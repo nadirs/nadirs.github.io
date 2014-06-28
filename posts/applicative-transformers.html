@@ -100,13 +100,12 @@ mapIdentityT h <span class="fu">=</span> <span class="dt">IdentityT</span> <span
 <span class="dt">IdentityT</span> {runIdentityT <span class="fu">=</span> <span class="dt">Just</span> <span class="dv">5</span>}</code></pre>
 <p>Ok, now we need a function <code>f a -&gt; g b</code>, which in this case would be <code>Num a =&gt; Maybe a -&gt; g b</code>. Lets say we want a list of strings, so the signature ends up being:</p>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="dt">Num</span> a, <span class="dt">Show</span> a <span class="ot">=&gt;</span> <span class="dt">Maybe</span> a <span class="ot">-&gt;</span> [<span class="dt">String</span>]</code></pre>
-<p>The function, lets call it <code>bar</code> for the sake of meaningful names:</p>
-<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="fu">&gt;</span> <span class="kw">let</span> bar <span class="fu">=</span> maybe [] (pure <span class="fu">.</span> show)
-<span class="fu">&gt;</span> <span class="fu">:</span>t bar
-<span class="ot">bar ::</span> (<span class="dt">Show</span> a, <span class="dt">Num</span> a) <span class="ot">=&gt;</span> <span class="dt">Maybe</span> a <span class="ot">-&gt;</span> [<span class="dt">String</span>]
-<span class="fu">&gt;</span> mapIdentityT bar foo
+<p>The function, let’s call it <code>bar</code> for the sake of meaningful names, is as follows:</p>
+<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="fu">&gt;</span> <span class="kw">let</span> bar <span class="fu">=</span> maybe [] (pure <span class="fu">.</span> show)</code></pre>
+<p>Finally we map <code>bar</code> to <code>foo</code>:</p>
+<pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="fu">&gt;</span> mapIdentityT bar foo
 <span class="dt">IdentityT</span> {runIdentityT <span class="fu">=</span> [<span class="st">&quot;5&quot;</span>]}</code></pre>
-<p>At least it works, although I’m not sure this answer the second of my questions (<em>Is it useful?</em>).</p>
+<p>At least it works, although I’m not sure this answers the second of my questions (<em>Is it useful?</em>).</p>
 <h3 id="wrap-up-and-next-steps">Wrap up and next steps</h3>
 <p>Next thing to do is figuring out how to implement more complex transformers and probably learning about Yoneda and Coyoneda, whatever they are.</p>
 <p>There’s something that does not feel right with this exploration, I’m probably missing something (part of the problem has to do with the fact I haven’t actually ever used monad transformers). So, feel free to let me know about nonsense I might have written here; I’m on Twitter <a href="https://twitter.com/nadirsampaoli">@nadirsampaoli</a>.</p>
