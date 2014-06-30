@@ -70,7 +70,7 @@
     pure <span class="fu">=</span> <span class="dt">IdentityT</span> <span class="fu">.</span> pure
     (<span class="dt">IdentityT</span> h) <span class="fu">&lt;*&gt;</span> (<span class="dt">IdentityT</span> f) <span class="fu">=</span> <span class="dt">IdentityT</span> <span class="fu">$</span> h <span class="fu">&lt;*&gt;</span> f</code></pre>
 <p><strong>Note:</strong><br />GHC extension <code>-XKindSignatures</code> lets you constrain <em>IdentityT</em>’s type parameter <code>f</code> to that kind (i.e. the kind required to create Functor and Applicative instances).</p>
-<p>Now, this was just an exercise to ensure I understood what I was actually putting together (keep reading, it’s going to be no timebefore I realize I didn’t really understand what’s going on). GHC has another extension, named <code>-XGenericNewtypeDeriving</code> that allows you to avoid the <em>chore</em> of writing by hand type class instances that could be inferred by the compiler. So the previous snippet becomes:</p>
+<p>Now, this was just an exercise to ensure I understood what I was actually putting together (keep reading, it’s going to be no time before I realize I didn’t really understand what’s going on). GHC has another extension, named <code>-XGeneralizedNewtypeDeriving</code> that allows you to avoid the <em>chore</em> of writing by hand type class instances that could be inferred by the compiler. So the previous snippet becomes:</p>
 <pre class="sourceCode haskell"><code class="sourceCode haskell"><span class="ot">{-# OPTIONS_GHC -Wall #-}</span>
 <span class="ot">{-# LANGUAGE KindSignatures, GeneralizedNewtypeDeriving #-}</span>
 
